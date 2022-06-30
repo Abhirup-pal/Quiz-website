@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <nav>
+        <label id="home" class="navlabel" onclick=send_back_to_home()>
+            Home
+        </label>
+        <label id="add_ques" onclick=add_question() class="navlabel">
+            Add questions
+        </label>
+        <!-- <label id="del_edit" onclick=del_edit() class="navlabel">
+            Edit or Delete questions
+        </label> -->
+    </nav>
+    <div id="main_container">
+        <h1>
+            Welcome to this quiz
+        </h1>
+        <div id="question_input">
+            <h3>
+                ADD YOUR QUESTIONS HERE :
+            </h3>
+            QUESTION :
+            <input type="textarea" id="question_inp" placeholder="TYPE YOUR QUESTION HERE" class="input_ques">
+            <br>
+            DON'T FORGET TO SELECT THE CORRECT ANSWER TO YOUR QUESTION <br>
+            <br>
+            OPTION 1 :<input type="radio" name="options" value='1' onclick=fetchval(this.value)>
+            <input type="textarea" id="o1input" placeholder="TYPE OPTION 1 HERE" class="input_ques">
+            OPTION 2 :<input type="radio" name="options" value='2' onclick=fetchval(this.value)>
+            <input type="textarea" id="o2input" placeholder="TYPE OPTION 2 HERE" class="input_ques">
+            OPTION 3 :<input type="radio" name="options" value='3' onclick=fetchval(this.value)>
+            <input type="textarea" id="o3input" placeholder="TYPE OPTION 3 HERE" class="input_ques">
+            OPTION 4 :<input type="radio" name="options" value='4' onclick=fetchval(this.value)>
+            <input type="textarea" id="o4input" placeholder="TYPE OPTION 4 HERE" class="input_ques">
+            <div id="comment_in_add" class="comment">
+            </div>
+            <button id="add_ques" class="btn" onclick=addques_btn()>
+                ADD QUESTION
+            </button>
+            <div id="time_input">
+                ENTER THE TOTAL TIME OF THE QUIZ (in seconds) <br><br>
+                <input type="text" id="input_time">
+                <br>
+                <p id="comment_time">
+
+                </p>
+                <button id="time_save" onclick=save_time() class="btn">SAVE</button>
+            </div>
+        </div>
+        <!-- <div id="ques_edit">
+            <div id="question_cont_for_edit">
+                <button id="edit" class="btn">
+                    EDIT
+                </button>
+                <button id="delete" class="btn">
+                    DELETE
+                </button>
+            </div>
+            <div id="edit_container">
+                <h3>
+                    EDIT YOUR QUESTIONS HERE
+                </h3>
+                QUESTION :
+                <input type="textarea" id="question_inp" placeholder="TYPE YOUR QUESTION HERE" class="input_ques">
+                <br>
+                DON'T FORGET TO SELECT THE CORRECT ANSWER TO YOUR QUESTION <br>
+                <br>
+                OPTION 1 :<input type="radio" name="options" value='1' onclick=fetchval(this.value)>
+                <input type="textarea" id="o1input" placeholder="TYPE OPTION 1 HERE" class="input_ques">
+                OPTION 2 :<input type="radio" name="options" value='2' onclick=fetchval(this.value)>
+                <input type="textarea" id="o2input" placeholder="TYPE OPTION 2 HERE" class="input_ques">
+                OPTION 3 :<input type="radio" name="options" value='3' onclick=fetchval(this.value)>
+                <input type="textarea" id="o3input" placeholder="TYPE OPTION 3 HERE" class="input_ques">
+                OPTION 4 :<input type="radio" name="options" value='4' onclick=fetchval(this.value)>
+                <input type="textarea" id="o4input" placeholder="TYPE OPTION 4 HERE" class="input_ques">
+                <div id="comment_in_add" class="comment">
+                </div>
+                <button id="add_ques" class="btn" onclick=addques_btn()>
+                    SAVE QUESTION
+                </button>
+            </div>
+        </div> -->
+
+        <h2 id="score_display" style="display:none;">
+            SCORE : 0
+            <h2 id="clock" style="display:none;">
+            </h2>
+        </h2>
+        <div id="question_container">
+            <div id="ques_cont_child">
+                <button class="btn" id="start" onclick=start()>
+                    START THE QUIZ
+                </button>
+                <div id="question1" class="qcard" style="display:none;">
+                    <div class="question">
+                        What is the color of blood?
+                    </div>
+                    <div class="option wa">
+                        <input type="radio" name="q1" value="wa" onclick=change_skip(this.value)>
+                        <label>Green</label>
+                    </div>
+                    <div class="option ca">
+                        <input type="radio" name="q1" value="ca" onclick=change_skip(this.value)>
+                        <label>Crimson</label>
+                    </div>
+                    <div class="option wa">
+                        <input type="radio" name="q1" value="wa" onclick=change_skip(this.value)>
+                        <label>White</label>
+                    </div>
+                    <div class="option wa">
+                        <input type="radio" name="q1" value="wa" onclick=change_skip(this.value)>
+                        <label>Brown</label>
+                    </div>
+                    <div class="option skip_option">
+                        <input type="radio" name="q1" value="skip" onclick=change_skip(this.value)><label>Skip this
+                            question</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <div id="comment" class="comment">
+
+        </div>
+        <button id="finish" class="btn" style="display:none">
+            SKIP
+        </button>
+        <div id="final_score" style="display:none;">
+
+        </div>
+    </div>
+
+        <div id="instructions">
+            GENERAL INSTRUCTIONS:
+            <ul>
+                <li>READ THE QUESTIONS CAREFULLY AND ANSWER <BR></li>
+                <li>YOU NEED TO SELECT ONLY ONE CORRECT ANSWER FOR EACH QUESTION <BR></li>
+                <li>FOR EACH CORRECT ANSWER YOU WILL BE AWARDED +4 POINTS WHEREAS FOR EACH WRONG ANSWER YOU WILL BE
+                    AWARDED -1 POINTS <BR></li>
+                <li>PRESS THE START BUTTON TO START THE QUIZ <BR></li>
+                <li id="number_of_questions"></li>
+                <li>ALL THE BEST! :)<BR></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="quiz.js"></script>
+
+</html>
