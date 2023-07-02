@@ -31,6 +31,6 @@ The Quiz website is compatible with modern web browsers such as Chrome, Firefox,
 
 ## Credits
 
-This project is created by [Your Name]. Feel free to contact me at [Your Email Address] for any questions or feedback.
+This project is created by @abhirup-pal. Feel free to contact me at abhiruppal2804@gmail.com for any questions or feedback.
 
 Enjoy playing the Quiz and testing your knowledge!
