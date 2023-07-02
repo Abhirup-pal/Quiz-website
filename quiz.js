@@ -5,7 +5,7 @@ let score = 0;
 let skip = 1;
 let finish = document.getElementById('finish');
 let ans_val = '';
-let password = 'Abhirup';
+let password = 'Password';
 let wrong_color = '#ee0f0f', correct_color = '#0fee0f';
 let question_container_color = 'rgb(82, 172, 207)', qcard_color = 'rgb(155, 206, 226)';
 let total_time = 300; //total time in seconds
