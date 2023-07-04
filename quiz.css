@@ -2,6 +2,7 @@
     --bgcolor1:linear-gradient(225deg,rgb(130, 46, 209),rgb(119, 204, 238));
     --bgcolor2:linear-gradient(45deg,rgb(130, 46, 209),rgb(119, 204, 238));
 }
+
 body{
     background-color: #000;
 }
@@ -118,7 +119,7 @@ label{
     color:rgb(61, 72, 173);
 }
 .skip_option:hover{
-    font-size: 0.8em;
+    font-size: 0.63em;
     color:#000;
 }
 .clear{
